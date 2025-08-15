@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 // Replace 'your-username' and 'your-repo' below with your actual GitHub username and repository name
 export default defineConfig({
   plugins: [react()],
-  base: '/prateeksite/'
+  base: '/'
 })
