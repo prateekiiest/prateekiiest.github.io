@@ -1,19 +1,20 @@
 
 import './App.css';
+import prateekImg from './assets/prateek.jpg';
 
 function App() {
   return (
     <div className="container two-col-layout">
       <div className="profile-col">
         <div className="profile-img-rect large">
-          <img src="https://web.stanford.edu/~pras1712/az.jpg" alt="Prasanna Ramakrishnan" className="profile-img-rect-img large" />
+          <img src={prateekImg} alt="Prateek Chanda" className="profile-img-rect-img large" />
         </div>
       </div>
       <div className="content-col">
         <header className="header">
-          <h1>Prasanna Ramakrishnan</h1>
+          <h1>Prateek Chanda</h1>
           <p className="email">Email: pras1712 [at] stanford [dot] edu</p>
-          <p className="bio">I'm a PhD student at Stanford University in the CS Theory group. I'm fortunate to be co-advised by Moses Charikar and Li-Yang Tan.</p>
+          <p className="bio">I'm a PhD student at IIT Bombay in the CSE AIML group. I'm fortunate to be advised by Ganesh Ramakrishnan. I work on data efficient machine learning and its applications in large scale models. I am graciously supported by the Microsoft India PhD Fellowship and Prime Minister Research Fellowship.</p>
         </header>
         <section className="research">
           <h2>Research</h2>
@@ -34,9 +35,9 @@ function App() {
               <span className="venue">SODA 2022</span>
             </div>
             <div className="pub-item">
-              <a href="https://arxiv.org/abs/1802.00875" target="_blank" rel="noopener noreferrer">On taking advantage of multiple requests in error correcting codes</a>
-              <span className="authors">with Mary Wootters.</span>
-              <span className="venue">ISIT 2018</span>
+              <a href="https://arxiv.org/abs/1802.00875" target="_blank" rel="noopener noreferrer">Bayesian Coreset Optimization for Personalized Federated Learning</a>
+              <span className="authors">with Shrey Modi and Ganesh Ramakrishnan</span>
+              <span className="venue">ICLR 2024</span>
             </div>
           </div>
         </section>
