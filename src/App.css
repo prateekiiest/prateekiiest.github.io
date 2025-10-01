@@ -1,5 +1,4 @@
 /* Publication list styling */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap');
 /* Publication list styling */
 .pub-list {
   padding-left: 2rem;
@@ -22,23 +21,45 @@
 /* Authors on next line for each paper */
 .pub-list .authors {
   display: block;
-  margin-top: 0.4rem;
-  color: #555;
+  margin-top: 0.2rem;
+  font-style: italic;
+  color: #2a4d8f;
+  font-weight: 500;
 }
 .pub-list .venue {
   display: block;
   margin-top: 0.2rem;
   font-style: italic;
-  color: #2a4d8f;
+  font-weight: 900;
+  color: #4526e1;
 }
 
 body {
   font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: linear-gradient(120deg, #b3caff 10%, #e7d2fb 60%, #b49ae7 100%);
+  background:
+    linear-gradient(120deg, #acbef6 0%, #f3f0f5 60%, #f3effa 100%);
   margin: 0;
   color: #222;
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   letter-spacing: 0.01em;
+  overflow-x: hidden; /* Prevent horizontal scroll and white background */
+  position: relative;
+}
+body::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 520px;
+  background: url('assets/nyc_image.jpg') center bottom / 100vw 520px no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(1.6) blur(1px);
+}
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 h1, h2 {
@@ -48,17 +69,18 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 2.3rem;
+  font-size: 2.6rem;
   margin-bottom: 0.5rem;
 }
 
 h2 {
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   margin-bottom: 1rem;
 }
 
 .email, .bio, .authors, .venue, .pub-item, .expository, .activities {
   font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  font-size: 1.18rem;
 }
 
 #root {
@@ -66,6 +88,7 @@ h2 {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll and white background */
 }
 
 
@@ -73,27 +96,30 @@ h2 {
   display: flex;
   flex-direction: row;
   width: 100vw;
+  max-width: 1400px;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 2rem 5vw;
+  margin: 0 auto;
 }
 
 .profile-col {
-  flex: 0 0 340px;
+  flex: 0 0 220px; /* narrower left column */
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start; /* align image to left */
 }
 
 .profile-img-rect.large {
   width: 300px;
   height: 380px;
-  background: #c0c3fa;
+  background: #acbef6;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .profile-img-rect-img.large {
   width: 280px;
@@ -103,10 +129,13 @@ h2 {
 }
 
 .content-col {
-  flex: 1;
-  padding-left: 3vw;
+  flex: 1 1 0;
+  padding-left: 5vw;
   display: flex;
   flex-direction: column;
+  max-width: 1100px; /* more width for text */
+  box-sizing: border-box;
+  word-break: break-word;
 }
 
 .header {
@@ -204,6 +233,7 @@ h2 {
 li {
   margin-bottom: 0.7rem;
   line-height: 1.6;
+  font-size: 1.18rem;
 }
 
 a {
@@ -212,4 +242,92 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+.award-title {
+  color: #2707a5; /* or any shade of blue you prefer */
+}
+
+.profile-links {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.profile-link {
+  color: #1976d2;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.18rem;
+  transition: color 0.2s;
+}
+
+.profile-link:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+
+.profile-img-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .profile-img-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+  .profile-links {
+    align-items: flex-end;
+  }
+}
+
+.profile-links-bottom {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0 1.5rem 0;
+  position: bottom;
+  left: 0;
+  bottom: 0;
+ /*background: rgba(206, 163, 244, 0.85);*/
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .profile-links-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 1rem 0 1rem 0;
+  }
+}
+
+.exp-lab {
+  color: #2707a5;
+}
+
+.exp-role {
+  color: #333;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  display: block;
+}
+
+.site-updated {
+  width: 100vw;
+  text-align: center;
+  font-size: 1.08rem;
+  color: #555;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
 }
